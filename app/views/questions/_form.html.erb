@@ -1,0 +1,23 @@
+<% if @question.errors.any? %>
+	<ul>
+		<% @question.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @question do |f| %>
+
+	<%= f.label :title, "Enter your question's title:" %>  
+	<%= f.text_field :title %>
+	<br>
+
+	<%= f.label :description, "Enter your question:" %>
+	<%= f.text_area :description %>
+	<br>
+
+  <%= f.submit button_label, class: "btn btn-secondary" %>
+
+	
+
+<% end %>

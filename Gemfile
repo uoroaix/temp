@@ -8,8 +8,43 @@ gem 'pg'
 
 gem "quiet_assets"
 
+gem "haml-rails"
+
+gem 'devise'
+gem "cancan"
+gem "omniauth-twitter"
+
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
+gem 'activeadmin', git: "https://github.com/gregbell/active_admin"
+
+gem 'simple_form', git: "https://github.com/plataformatec/simple_form"
+
+#paperclip s3
+gem "paperclip", "~> 4.1"
+gem 'aws-sdk', '~> 1.5.7'
+#carrierwave s3
+gem 'carrierwave'
+gem 'rmagick', '~> 2.13.2', require: "RMagick"
+gem "fog"
+#will paginate
+gem "kaminari"
+
+
+  group :development, :test do 
+    gem "capybara"
+    gem "database_cleaner"
+    gem "selenium-webdriver"
+    gem "faker"
+    gem "rspec-rails"
+    gem "factory_girl_rails"
+  end
+
+gem 'simplecov', require: false, group: :test
+
 # group development
 	group :development do
+    gem "letter_opener"
 		gem "hirb"
 		gem "interactive_editor"
 		gem "awesome_print"
@@ -32,6 +67,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

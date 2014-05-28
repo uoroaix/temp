@@ -1,0 +1,16 @@
+/ - if @question.errors.any?
+/   %ul
+/     - @question.errors.full_messages.each do |message|
+/       %li= message
+= simple_form_for @question, html: {class: "form-horizontal well" } do |f|
+  = f.input :title, label: "Question Title"
+  = f.input :description
+
+  = f.input :image
+
+  / = f.association :categories
+
+  %br/
+  = f.collection_check_boxes :category_ids, Category.order("title"), :id, :title,item_wrapper_class: "form-group"
+  %br/
+  = f.submit button_label, class: "btn btn-secondary"

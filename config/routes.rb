@@ -1,5 +1,11 @@
 Temp::Application.routes.draw do
 
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
+
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   get "/about_us" => "home#about"
   get "/help" => "help#index"
 
@@ -13,12 +19,15 @@ Temp::Application.routes.draw do
   # delete "/questions/:id" => "questions#destroy"
   # all of the above can be done like the following line
   resources :questions do  
-    member do
-      post :vote_down
-      post :vote_up
-    end
-
+    resources :favorites, only: [:create, :destroy]
+    resources :votes, only: [:create, :update, :destroy]
+    resources :answers
     post :search, on: :collection
+  end
+
+
+  resources :answers, only: [] do
+    resources :comments, only: [:create, :destroy]
   end
 
   root "questions#index" #this means the index of questions will be my homepage

@@ -1,0 +1,11 @@
+%h2 Add An Answer
+- if @answer.errors.any?
+  %ul
+    - @answer.errors.full_messages.each do |message|
+      %li= message
+
+/ = form_for [@question, @answer] do |f|
+= form_for @answer, url: question_answers_path(@question), remote: true do |f|
+  = f.text_area :body, class: "form-control"
+  %br
+  = f.submit "Submit an answer", class: "btn btn-default"

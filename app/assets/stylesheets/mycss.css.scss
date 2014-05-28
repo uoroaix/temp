@@ -1,0 +1,50 @@
+/*$warning-color: red;
+$text-color: black;
+$border-radius: 2px;
+$margin-for-space: 50px;
+$square-radius: 0px;
+$circle-radius: 12px;
+$myfont-size: 30px;
+$myfont-color: blue;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.color-combination {
+  background-color: pink;
+  color: black;
+}
+
+
+.field_with_errors {
+	background-color: $warning-color;
+}
+
+
+
+.space {
+  margin-top: $margin-for-space;
+}
+
+
+
+.btn {
+  @include border-radius($square-radius);
+}
+
+.my-button {
+  @extend .color-combination;
+  @include border-radius($circle-radius);
+}
+
+
+.well {
+  p {
+    font-size: $myfont-size;
+    color: $myfont-color;
+  }
+}*/

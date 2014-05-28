@@ -1,0 +1,40 @@
+= link_to "Help", help_path
+%br/
+%h1 about us
+
+
+#draggable1{style: "background-color: black;color: white"}
+  %p Drag me to my target
+#draggable2{style: "background-color: black;color: white"}
+  %p Drag me to my target
+#draggable3{style: "background-color: black;color: white"}
+  %p Drag me to my target
+#droppable.ui-widget-header{style: "background-color: blue"}
+  %p Drop here
+
+
+= link_to "Click Me", "javascript:void(0);", class: "myButton btn btn-primary"
+
+.space
+.row
+  %h1 Pending
+  .pending
+    %p
+      = check_box_tag "box1", 1, nil, class: "chkbox"
+      = label_tag "box1", "Check Box 1", id: "label1"
+    %p
+      = check_box_tag "box2", 2, nil, class: "chkbox"
+      = label_tag "box2", "Check Box 2", id: "label2"
+    %p
+      = check_box_tag "box3", 3, nil, class: "chkbox"
+      = label_tag "box3", "Check Box 3", id: "label3"
+    %p
+      = check_box_tag "box4", 4, nil, class: "chkbox"
+      = label_tag "box4", "Check Box 4", id: "label4"
+
+
+
+
+.row
+  %h1 Complete
+  .complete

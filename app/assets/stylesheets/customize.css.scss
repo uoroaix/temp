@@ -1,0 +1,76 @@
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+
+$codecore-color: #CB0D0F;
+$square-radius: 0px;
+$myfont-size: 46px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+@mixin gradient-bg($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-gradient-bg(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-gradient-bg(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-gradient-bg(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-gradient-bg(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         gradient-bg(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+
+body {
+  font-family: 'Special Elite', cursive; 
+  font-size: 105%;
+}
+
+.space {
+  margin-top: 100px;
+}
+
+.form-control {
+  @include border-radius($square-radius);
+}
+
+
+.checked {
+  text-decoration: line-through
+}
+
+.btn{
+  @include border-radius($square-radius);
+}
+
+.well{
+  @include border-radius($square-radius);
+}
+
+.btn-codecore {
+  color: $codecore-color;
+}
+
+.navbar {
+  background-color: $codecore-color;
+  font-size: $myfont-size;
+}
+
+.alert-cool {
+  @extend .alert-success;
+  @include gradient-bg($codecore-color, #ffa07a);
+}
+
+.gradient-bg {
+    @include gradient-bg($codecore-color, #ffa07a);
+}
+
+
+#draggable1 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+#draggable2 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+#draggable3 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+#droppable { width: 150px; height: 150px; padding: 0.5em; float: right; margin: 10px; }

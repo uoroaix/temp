@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title Temp
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default{role: "navigation"}
+      .container
+        %a.navbar-brand= link_to "Home", root_path
+        .pull-right
+          - if user_signed_in?
+            Hello 
+            = current_user.full_name
+            &nbsp;
+            = link_to "Sign Out", destroy_user_session_path, method: :delete
+          - else
+            = link_to "Sign In", new_user_session_path
+            |
+            = link_to "Sign In Wtih Twitter", user_omniauth_authorize_path(:twitter)
+    .container-fluid.col-md-10.col-md-offset-1.gradient-bg
+      - if flash[:notice]
+        .alert.alert-success= flash[:notice]
+      - elsif flash[:alert]
+        .alert.alert-danger= flash[:alert]
+      = yield
+
+
